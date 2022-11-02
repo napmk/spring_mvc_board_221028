@@ -19,12 +19,15 @@
 			<th>게시일</th>
 			<th>조회수</th>
 		</tr>
-		
+		총 게시글 수 :${boardCount } 개
 		<c:forEach items="${list }" var="bdto"> <!-- 첫번째 글 가지고 올때 bdto로 가져옴 -->
 		<tr height="30" style="text-align:center" >
 			<td>${bdto.bid }</td>
 			<td>${bdto.bname }</td>
-			<td style="text-align:left">${bdto.btitle }</td>
+			<td style="text-align:left">
+				<c:forEach begin ="1" end="${bdto.bindent }">&nbsp;&nbsp;&nbsp;</c:forEach>
+				<a href="content_view?bid=${bdto.bid}">${bdto.btitle }</a>	<!-- 중요 번호 골라내서 -->
+			</td>
 			<td>${bdto.bdate }</td>
 			<td>${bdto.bhit }</td>
 		</tr>
